@@ -1,3 +1,3 @@
 # Google Software Product Sprint
 
-This repo contains Alex Vasquez' portfolio and SPS projects :D
+This repo contains Alex Vasquez' portfolio and SPS projects, enjoy :D

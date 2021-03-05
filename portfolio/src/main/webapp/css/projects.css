@@ -1,0 +1,265 @@
+
+/* CSS Code for the Projects Page */
+
+/* The loader animation when we go into the page */
+#loader-wrapper .loader-section {
+  position: fixed;
+  top: 0;
+  width: 51%;
+  height: 100%;
+  background: #222222;
+  z-index: 1000;
+  -webkit-transform: translateX(0); 
+  -ms-transform: translateX(0); 
+  transform: translateX(0); 
+}
+
+#loader-wrapper .loader-section.section-left {
+  left: 0;
+}
+
+#loader-wrapper .loader-section.section-right {
+  right: 0;
+}
+
+.loaded #loader-wrapper .loader-section.section-left {
+  -webkit-transform: translateX(-100%); 
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%); 
+
+  -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.loaded #loader-wrapper .loader-section.section-right {
+  -webkit-transform: translateX(100%); 
+  -ms-transform: translateX(100%); 
+  transform: translateX(100%); 
+
+  -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Body */
+body {
+  font-family: Georgia, serif;
+  font-size: 19px;
+  color: #ffffff;
+  overflow-x: hidden;
+  background: #332725;
+}
+
+/* Main Continer */
+.tm-main-container {
+    position: relative;
+  height: 100%;
+}
+
+/* Top Container */
+.tm-top-container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* Buttons */
+.tm-nav {
+  margin: 30px;
+  font-style: oblique;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: lowercase;
+}
+
+.tm-nav-links {
+  list-style: none;
+}
+
+/* Menu Button */
+.tm-navbar-menu {
+  display: block;
+  color: black;
+  background: white;
+  padding: 10px 30px;
+  margin-bottom: 18px;
+  width: 120px;
+  margin-right: 0;
+  margin-left: auto;
+  text-align: center;
+  border-radius: 8px
+}
+
+.tm-navbar-menu:hover {
+  color: white;
+  background: rgb(98, 58, 163);
+  text-decoration: none;
+  transform: scale(1.3);
+}
+
+/* Other Buttons */
+.button {
+  margin: 5px;
+  font-style: oblique;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: lowercase;
+}
+
+.button:link, .button:visited {
+  color: black;
+  background-color: white;
+  padding: 10px 40px;
+  display: block;
+  margin-bottom: 15px;
+  text-align: center;
+  border-radius: 8px
+}
+
+.button:hover, 
+.button:focus {
+  text-decoration: none;
+  color: white;
+  background: black;
+}
+
+.header-box {
+  display: inline-block;
+  color: white;
+  padding: 40px 20px 40px 40px;
+  margin: 40px 40px 100px;
+  border-radius: 8px;
+}
+
+/* Box Background */
+.dark-bckg {
+  background: rgba(49, 49, 53, 0.7);
+}
+
+/* Title */
+.title {
+  font-size: 2.6rem;
+  text-transform: uppercase;
+}
+
+/* Subtitle */
+.subtitle {
+  color: #dde1e7;
+  font-family: Garamond, serif;
+  font-size: 1.0rem;
+  font-weight: 300;
+}
+
+/* Projects Containers */
+.collapsible {
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 30px;
+}
+
+/* Intern at GE */
+.collapsible-first {
+  background-color: black;
+  color: white;
+  text-align: left;
+}
+
+.collapsible-second {
+  background-color: white;
+  color: black;
+  text-align: right;
+}
+
+.collapsible-first:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+}
+
+.collapsible-second:after {
+  content: '\002B';
+  color: black;
+  font-weight: bold;
+  float: left;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content-first {
+  padding: 0 50px 0 50px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  color: white;
+  background-color: black;
+}
+
+.content-second {
+  padding: 0 50px 0 50px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  color: black;
+  background-color: white
+}
+
+
+/* Footer */
+.social-footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  opacity: 0.8;
+  background-color: #625f63;
+}
+
+/*Social Media Icons*/
+.social-wrapper {
+  text-align: center;
+  padding-right: 50px;
+}
+
+.social-wrapper ul li {
+  display: inline;
+  margin: 5px;
+}
+
+.twitter,
+.facebook,
+.instagram,
+.linkedin,
+.email,
+.github{
+  margin-top: .62em;
+  width: 30px;
+  height: 30px;
+}
+
+.twitter:hover,
+.facebook:hover,
+.instagram:hover,
+.linkedin:hover,
+.email:hover,
+.github:hover{
+  transform: scale(1.2);
+  opacity: 1.0;
+}
+
+.footer-nav p {
+  font-size: 15px;
+  color: black;
+  text-align: center;
+}
+
+.hyperlink {
+  color: black;
+  font-style: italic;
+  text-decoration: underline;
+  padding-right: 9px;
+}
+

@@ -15,7 +15,6 @@
 package com.google.sps.servlets;
 
 import java.io.IOException;
-import org.json.simple.JSONObject; 
 import java.util.Date;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

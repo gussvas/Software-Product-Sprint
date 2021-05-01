@@ -158,6 +158,13 @@
 
   <script>
 
+    function mobileAlert() {
+            alert("Hello Dear Stranger!\nAlex here, I noticed that you are checking my portfolio from your mobile and I wanted to suggest you to open it from your computer instead\nCheers!");
+        }
+
+    if (/Mobi/.test(navigator.userAgent)) {
+      mobileAlert();
+    }
 
     window.onload = function () {
       $("body").addClass("loaded");

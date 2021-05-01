@@ -1,19 +1,226 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click <a href="/hello">here</a> to see content created by server code.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Alex Vasquez</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/A.jpg">
+
+  <!-- load CSS Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" />
+  <!-- Boostrap  -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/introductionsCSS.css" />
+
+</head>
+
+<body>
+  <!-- Loader when opening page -->
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+  </div>
+
+  <div class="tm-main-container">
+    <div class="tm-top-container">
+
+      <!-- Menu Button -->
+      <nav id="tmNav" class="tm-nav">
+        <a class="tm-navbar-menu" href="#">Menu</a>
+        <ul class="tm-nav-links">
+          <li class="tm-nav-item active">
+            <a href="/introduction.html" data-align="right" class="button">Home</a>
+          </li>
+
+          <li class="tm-nav-item">
+            <a href="/projects.html" data-align="right" class="button">Work and Projects</a>
+          </li>
+
+          <li class="tm-nav-item">
+            <a href="/gallery.html" data-align="right" class="button">About Me</a>
+          </li>
+
+          <li class="tm-nav-item">
+            <a href="/contact.html" data-align="right" class="button">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Site header -->
+      <header class="header-box dark-bckg ">
+        <h1 class="title">Gustavo Vásquez</h1>
+        <p class="subtitle">But you can call me Alex ;)</p>
+      </header>
     </div>
-  </body>
+    <!-- tm-top-container -->
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Site content -->
+          <div class="tm-content">
+            <!-- Section 0 Introduction -->
+            <section class="tm-section tm-section-0">
+              <h2 class="title mb-3 font-weight-bold">
+                Hi There!
+              </h2>
+              <div class="tm-textbox dark-bckg">
+                <p>
+                  My name is Gustavo Vasquez (He/Him) but everyone calls me Alex. I'm a junior year Computer Science
+                  student
+                  at Tecnologico de Monterrey in Mexico.
+                </p>
+                <p></p>
+                I am an eager and passionate person when it comes to technology, specially when it comes to solving
+                today's biggest problems and fighting for what I believe is right.
+                </p>
+                <p class="mb-0">
+                  If you'd like to know what I've been working on since my freshman year feel free to take a look at my
+                  projects.
+                </p>
+              </div>
+            </section>
+
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+
+    <!-- Footer -->
+
+    <div class="social-footer">
+      <div class="social-wrapper">
+        <ul>
+          <!--Facebook-->
+          <li>
+            <a href="https://www.facebook.com/alex.va99/" target="_blank">
+              <img src="img/facebook.png" alt="My Facebook" class="facebook">
+            </a>
+          </li>
+
+          <!--Instagram-->
+          <li>
+            <a href="https://www.instagram.com/alex.vasqxz/" target="_blank">
+              <img src="img/instagram.png" alt="My Instagram" class="instagram">
+            </a>
+          </li>
+
+          <!--Twitter-->
+          <li>
+            <a href="https://twitter.com/Gustale_xx" target="_blank">
+              <img src="img/twitter.png" alt="My Twitter" class="twitter">
+            </a>
+          </li>
+
+          <!--Linkedln-->
+          <li>
+            <a href="https://www.linkedin.com/in/gustavo-vasquez99/" target="_blank">
+              <img src="img/linkedln.png" alt="My Linkedln" class="linkedin">
+            </a>
+          </li>
+
+          <!--Github-->
+          <li>
+            <a href="https://github.com/alexvasqxz" target="_blank">
+              <img src="img/github.png" alt="My Github" class="github">
+            </a>
+          </li>
+        </ul>
+      </div>
+      <nav class="footer-nav" role="navigation">
+        <p>|| Copyright &copy; 2021 Gustavo Vásquez || All rights reserved || </p>
+      </nav>
+    </div>
+
+  </div>
+
+
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/background.cycle.js"></script>
+
+  <script>
+
+
+    window.onload = function () {
+      $("body").addClass("loaded");
+    };
+
+    function navLinkClick(e) {
+      if ($(e.target).hasClass("external")) {
+        return;
+      }
+      
+      // Change page content
+      $(`.tm-section-${previousImageId}`).fadeOut(function (e) {
+        $(`.tm-section-${currentImageId}`).fadeIn();
+        // Gallery
+        if (currentImageId === 2) {
+          setupSlider();
+        }
+      });
+    }
+
+    $(document).ready(function () {
+      // Set first page
+      $(".tm-section").fadeOut(0);
+      $(".tm-section-0").fadeIn();
+
+      
+      bgCycle = $("body").backgroundCycle({
+        imageUrls: [
+          // Background image for Introduction
+          "img/introduction.png"
+        ],
+        fadeSpeed: 2000,
+        duration: -1,
+        backgroundSize: SCALING_MODE_COVER
+      });
+
+      eachNavLink = $(".tm-nav-link");
+      links = $(".tm-nav-links");
+
+      // "Menu" open/close
+      if (links.hasClass("open")) {
+        links.fadeIn(0);
+      } else {
+        links.fadeOut(0);
+      }
+
+      $("#tm_about_link").on("click", navLinkClick);
+      $("#tm_work_link").on("click", navLinkClick);
+
+      // Each menu item click
+      eachNavLink.on("click", navLinkClick);
+
+      $(".tm-navbar-menu").click(function (e) {
+        if (links.hasClass("open")) {
+          links.fadeOut();
+        } else {
+          links.fadeIn();
+        }
+
+        links.toggleClass("open");
+      });
+
+      // window resize
+      $(window).resize(function () {
+        // If current page is Gallery page, set it up
+        if (currentImageId === 2) {
+          setupSlider();
+        }
+      });
+
+    }); // DOM is ready
+  </script>
+</body>
+
 </html>

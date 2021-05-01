@@ -26,11 +26,11 @@ var currentImageIndex = -1;
 var imageIds = new Array();
 var fadeSpeed;
 
-//Sizing constants. these determine the value of the CSS property 'background-size' of the selected container
-var SCALING_MODE_NONE = 0; //Uses the original image size
-var SCALING_MODE_STRETCH = 1; //Sets 'background-size' to '100% 100%'. This stretches the background image to fill the container, discarding the images aspect ratio.
-var SCALING_MODE_COVER = 2; //Sets 'background-size' to 'cover'. This makes the background images fill the entire container while retaining its aspect ratio.
-var SCALING_MODE_CONTAIN = 3; //Sets 'background-size' to 'contain'. This scales the bakcground image to the largest size such that both its width and its height can fit inside the content area
+// Sizing constants. these determine the value of the CSS property 'background-size' of the selected container
+const SCALING_MODE_NONE = 0; // Uses the original image size
+const SCALING_MODE_STRETCH = 1; // Sets 'background-size' to '100% 100%'. This stretches the background image to fill the container, discarding the images aspect ratio.
+const SCALING_MODE_COVER = 2; // Sets 'background-size' to 'cover'. This makes the background images fill the entire container while retaining its aspect ratio.
+const SCALING_MODE_CONTAIN = 3; // Sets 'background-size' to 'contain'. This scales the bakcground image to the largest size such that both its width and its height can fit inside the content area
 
 /**
  * Adds a cycling (fading) background to the selected element
@@ -68,8 +68,6 @@ $.fn.backgroundCycle = function(options) {
 
   var children = this.children().detach();
   contents.append(children);
-
-  imageIds = new Array();
 
   for (var i = 0; i < settings.imageUrls.length; i++) {
     var id = "bgImage" + i;
@@ -120,7 +118,7 @@ $.fn.backgroundCycle = function(options) {
   }
 
   contents.css({
-    position: "absolute",
+    position: "relative",
     left: marginLeft,
     top: marginTop,
     right: marginRight,

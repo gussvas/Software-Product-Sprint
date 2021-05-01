@@ -55,6 +55,19 @@
         <p class="subtitle">Get to know what I enjoy doing besides coding</p>
       </header>
     </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <p>
+                Click this button to reveal a random Artist that I love
+            </p>
+            <button style="border-radius:8px" onclick="secretLyric();">
+                Ger Random Artist!
+            </button>
+            <p id="secret-p"></p>
+        </div>
+    </div>
+    </div>
 
     <div class="container-fluid">
       <div class="row">
@@ -375,7 +388,54 @@
   <script src="js/background.cycle.js"></script>
 
   <script>
+/*
+        async function secretLyric() {
+            const responseFromServer = await fetch('/json-servlet');
+            const textFromResponse = await responseFromServer.json();
 
+            const dateContainer = document.getElementById('secret-p');
+            dateContainer.innerText = responseFromServer.currentTime;
+        }
+*/
+        async function secretLyric() {
+            const responseFromServer = await fetch('/json-servlet');
+            const stats = await responseFromServer.json();
+
+            const statsListElement = document.getElementById('secret-p');
+            statsListElement.innerHTML = '';
+
+            var lyrics = [];
+            var length = 0;
+            for (var x in stats){
+                length++;
+            }
+            var randIndex = Math.floor(Math.random() * Math.floor(length));
+            var randArtist = "";
+            for (var i = 0; i < length; i++){
+                if (i == randIndex && i == 0){
+                    randArtist = stats.first;
+                }
+                if (i == randIndex && i == 1){
+                    randArtist = stats.second;
+                }
+                if (i == randIndex && i == 2){
+                    randArtist = stats.third;
+                }
+                if (i == randIndex && i == 3){
+                    randArtist = stats.fourth;
+                }
+            }
+        
+            statsListElement.appendChild(
+                createListElement(randArtist));
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
+}
 
     window.onload = function () {
       $("body").addClass("loaded");

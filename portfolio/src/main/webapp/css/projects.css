@@ -1,5 +1,5 @@
 
-/* CSS Code for the Introduction Page */
+/* CSS Code for the Projects Page */
 
 /* The loader animation when we go into the page */
 #loader-wrapper .loader-section {
@@ -68,6 +68,7 @@ body {
   margin: 30px;
   font-style: oblique;
   font-family: Arial, Helvetica, sans-serif;
+  text-transform: lowercase;
 }
 
 .tm-nav-links {
@@ -100,6 +101,7 @@ body {
   margin: 5px;
   font-style: oblique;
   font-family: Arial, Helvetica, sans-serif;
+  text-transform: lowercase;
 }
 
 .button:link, .button:visited {
@@ -119,23 +121,22 @@ body {
   background: black;
 }
 
-/* Header Box */
 .header-box {
   display: inline-block;
   color: white;
-  padding: 40px 80px 40px 40px;
+  padding: 40px 20px 40px 40px;
   margin: 40px 40px 100px;
   border-radius: 8px;
 }
 
 /* Box Background */
 .dark-bckg {
-  background: rgba(22, 22, 22, 0.7);
+  background: rgba(49, 49, 53, 0.7);
 }
 
 /* Title */
 .title {
-  font-size: 3.6rem;
+  font-size: 2.6rem;
   text-transform: uppercase;
 }
 
@@ -143,33 +144,69 @@ body {
 .subtitle {
   color: #dde1e7;
   font-family: Garamond, serif;
-  font-size: 1.5rem;
+  font-size: 1.0rem;
   font-weight: 300;
 }
 
-.tm-content {
-  padding-bottom: 50px;
-  display: flex;
-  justify-content: flex-end;
+/* Projects Containers */
+.collapsible {
+  cursor: pointer;
+  padding: 10px;
   width: 100%;
+  border: none;
+  outline: none;
+  font-size: 30px;
 }
 
-.tm-section {
-  margin-right: 75px;
-  max-width: 100%;
+/* Intern at GE */
+.collapsible-first {
+  background-color: black;
+  color: white;
+  text-align: left;
 }
 
-.tm-section-0 {
-  margin-top: 70px;
-  max-width: 575px;
+.collapsible-second {
+  background-color: white;
+  color: black;
+  text-align: right;
 }
 
-.tm-textbox {
-  padding: 45px;
-  font-size: 1.2rem;
-  color: #e1e9e5;
-  line-height: 1.8;
+.collapsible-first:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
 }
+
+.collapsible-second:after {
+  content: '\002B';
+  color: black;
+  font-weight: bold;
+  float: left;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content-first {
+  padding: 0 50px 0 50px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  color: white;
+  background-color: black;
+}
+
+.content-second {
+  padding: 0 50px 0 50px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  color: black;
+  background-color: white
+}
+
 
 /* Footer */
 .social-footer {

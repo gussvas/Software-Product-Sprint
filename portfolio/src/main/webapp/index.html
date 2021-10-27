@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css" />
 
   <!-- CSS -->
-  <link rel="stylesheet" href="css/introductionsCSS.css" />
+  <link rel="stylesheet" href="css/mainCSS.css" />
 
 </head>
 
@@ -35,21 +35,17 @@
       <nav id="tmNav" class="tm-nav">
         <a class="tm-navbar-menu" href="#">Menu</a>
         <ul class="tm-nav-links">
-          <li class="tm-nav-item active">
-            <a href="/introduction.html" data-align="right" class="button">Home</a>
+          <li class="tm-nav-item">
+            <a href="/index.html" data-align="right" class="button">Home</a>
           </li>
 
           <li class="tm-nav-item">
-            <a href="/projects.html" data-align="right" class="button">Work and Projects</a>
+            <a href="/projects.html" data-align="right" class="button">Projects</a>
           </li>
-
           <li class="tm-nav-item">
             <a href="/gallery.html" data-align="right" class="button">About Me</a>
           </li>
 
-          <li class="tm-nav-item">
-            <a href="/contact.html" data-align="right" class="button">Contact</a>
-          </li>
         </ul>
       </nav>
 
@@ -60,7 +56,6 @@
       </header>
     </div>
     <!-- tm-top-container -->
-
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
@@ -72,15 +67,12 @@
                 Hi There!
               </h2>
               <div class="tm-textbox dark-bckg">
-                <p>
-                  My name is Gustavo Vasquez (He/Him) but everyone calls me Alex. I'm a junior year Computer Science
+                <p> My name is Gustavo Vasquez (He/Him) but everyone calls me Alex. I'm a junior year Computer Science
                   student
-                  at Tecnologico de Monterrey in Mexico.
-                </p>
+                  at Tecnologico de Monterrey in Mexico.</p>
                 <p></p>
-                I am an eager and passionate person when it comes to technology, specially when it comes to solving
-                today's biggest problems and fighting for what I believe is right.
-                </p>
+                <p>I am an eager and passionate person when it comes to technology, specially when it comes to solving
+                today's biggest problems and fighting for what I believe is right.</p>
                 <p class="mb-0">
                   If you'd like to know what I've been working on since my freshman year feel free to take a look at my
                   projects.
@@ -91,7 +83,7 @@
           </div>
         </div>
 
-        
+
       </div>
     </div>
 
@@ -134,9 +126,21 @@
               <img src="img/github.png" alt="My Github" class="github">
             </a>
           </li>
+
+          <li>
+            <a href="mailto:gustavovasquez99@icloud.com" target="_blank">
+              <img src="img/email.png" alt="Contact Me" class="email">
+            </a>
+          </li>
         </ul>
       </div>
+
       <nav class="footer-nav" role="navigation">
+        <p>
+          <a href="/index.html" class="hyperlink">Home</a>
+          <a href="/projects.html" class="hyperlink">Projects</a>
+          <a href="/gallery.html" class="hyperlink">About Me</a>
+        </p>
         <p>|| Copyright &copy; 2021 Gustavo Vásquez || All rights reserved || </p>
       </nav>
     </div>
@@ -146,81 +150,8 @@
 
   <script src="js/jquery-1.11.0.min.js"></script>
   <script src="js/background.cycle.js"></script>
+  <script src="js/mainJs.js"></script>
 
-  <script>
-
-
-    window.onload = function () {
-      $("body").addClass("loaded");
-    };
-
-    function navLinkClick(e) {
-      if ($(e.target).hasClass("external")) {
-        return;
-      }
-      
-      // Change page content
-      $(`.tm-section-${previousImageId}`).fadeOut(function (e) {
-        $(`.tm-section-${currentImageId}`).fadeIn();
-        // Gallery
-        if (currentImageId === 2) {
-          setupSlider();
-        }
-      });
-    }
-
-    $(document).ready(function () {
-      // Set first page
-      $(".tm-section").fadeOut(0);
-      $(".tm-section-0").fadeIn();
-
-      
-      bgCycle = $("body").backgroundCycle({
-        imageUrls: [
-          // Background image for Introduction
-          "img/introduction.png"
-        ],
-        fadeSpeed: 2000,
-        duration: -1,
-        backgroundSize: SCALING_MODE_COVER
-      });
-
-      eachNavLink = $(".tm-nav-link");
-      links = $(".tm-nav-links");
-
-      // "Menu" open/close
-      if (links.hasClass("open")) {
-        links.fadeIn(0);
-      } else {
-        links.fadeOut(0);
-      }
-
-      $("#tm_about_link").on("click", navLinkClick);
-      $("#tm_work_link").on("click", navLinkClick);
-
-      // Each menu item click
-      eachNavLink.on("click", navLinkClick);
-
-      $(".tm-navbar-menu").click(function (e) {
-        if (links.hasClass("open")) {
-          links.fadeOut();
-        } else {
-          links.fadeIn();
-        }
-
-        links.toggleClass("open");
-      });
-
-      // window resize
-      $(window).resize(function () {
-        // If current page is Gallery page, set it up
-        if (currentImageId === 2) {
-          setupSlider();
-        }
-      });
-
-    }); // DOM is ready
-  </script>
-</body>
-
-</html>
+  </body>
+  </html>
+  
